@@ -59,23 +59,11 @@ buildCard(theHobbit);
 buildCard(squeezeMe);
 
 // Display a form for add book
-const addBookForm = () => {
-  const header = document.querySelector(".header");
-  const addBookFormElement = document.createElement("form");
-  const titleLabel = document.createElement("label");
-  titleLabel.setAttribute("for", "title");
-  titleLabel.innerText = "Title";
-  const titleInput = document.createElement("input");
-  titleInput.classList.add("title");
-  titleInput.setAttribute("id", "title");
-  titleInput.setAttribute("name", "title");
+const displayAddBookForm = () => {
 
-  addBookFormElement.appendChild(titleLabel);
-  addBookFormElement.appendChild(titleInput);
-  header.appendChild(addBookFormElement);
 };
 
 // Event listner for add book button
 addBookBtn.addEventListener("click", () => {
-  addBookForm();
+  displayAddBookForm();
 });

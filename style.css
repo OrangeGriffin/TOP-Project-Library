@@ -10,11 +10,16 @@
 }
 
 .add-book-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
   height: 40px;
 }
+
+.cancel-add-book {
+    display: none;
+}
+
 .books-cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -45,6 +50,7 @@
   margin-left: 5px;
   background-color: #cbd5e1;
   padding: 5px;
+  display: none;
 }
 
 .add-book-form label:not(:first-child) {
@@ -52,5 +58,5 @@
 }
 
 .read-status {
-    margin-top: 5px;
+  margin-top: 5px;
 }

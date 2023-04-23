@@ -1,6 +1,6 @@
 let myLibrary = []; // initialize empty library array
 
-const addBookBtn = document.querySelector('.add-book-button') // Button for add book
+const addBookBtn = document.querySelector(".add-book-button"); // Button for add book
 
 function Book(title, author, pages, read) {
   this.title = title;
@@ -58,7 +58,24 @@ const buildCard = (bookOjbect) => {
 buildCard(theHobbit);
 buildCard(squeezeMe);
 
+// Display a form for add book
+const addBookForm = () => {
+  const header = document.querySelector(".header");
+  const addBookFormElement = document.createElement("form");
+  const titleLabel = document.createElement("label");
+  titleLabel.setAttribute("for", "title");
+  titleLabel.innerText = "Title";
+  const titleInput = document.createElement("input");
+  titleInput.classList.add("title");
+  titleInput.setAttribute("id", "title");
+  titleInput.setAttribute("name", "title");
+
+  addBookFormElement.appendChild(titleLabel);
+  addBookFormElement.appendChild(titleInput);
+  header.appendChild(addBookFormElement);
+};
+
 // Event listner for add book button
-addBookBtn.addEventListener('click', () => {
-    alert("You want to add a book?");
-  });
+addBookBtn.addEventListener("click", () => {
+  addBookForm();
+});

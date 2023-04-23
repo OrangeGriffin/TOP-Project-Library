@@ -1,4 +1,6 @@
-let myLibrary = [];
+let myLibrary = []; // initialize empty library array
+
+const addBookBtn = document.querySelector('.add-book-button') // Button for add book
 
 function Book(title, author, pages, read) {
   this.title = title;
@@ -55,3 +57,8 @@ const buildCard = (bookOjbect) => {
 
 buildCard(theHobbit);
 buildCard(squeezeMe);
+
+// Event listner for add book button
+addBookBtn.addEventListener('click', () => {
+    alert("You want to add a book?");
+  });

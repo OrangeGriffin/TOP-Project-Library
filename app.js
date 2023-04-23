@@ -15,12 +15,11 @@ const squeezeMe = new Book("Squeeze Me", "Carl Hiaasen", 353, true);
 
 const bookCards = document.querySelector(".books-cards"); // Select the books-cards div
 
-const bookCard = document.createElement("div");
-bookCard.classList.add("book-card");
-
 // Create elements based on key/value pairs in theHobbit Ojbect, while
 // ignoring any functions within the Object
 const buildCard = (bookOjbect) => {
+  const bookCard = document.createElement("div");
+  bookCard.classList.add("book-card");
   Object.entries(bookOjbect).forEach(([key, value]) => {
     if (typeof value === "function") {
       /* Do Nothing */

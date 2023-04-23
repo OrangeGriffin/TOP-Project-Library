@@ -16,8 +16,24 @@
       <section class="books-cards"></section>
     </section>
     <section class="add-book-section">
-      <button type="button" class="add-book-button">Add Book</button>
-      <form class="add-book-form"></form>
+      <section class="add-book-buttons">
+        <button type="button" class="add-book-button">Add Book</button>
+        <button tpe="button" class="cancel-add-book">Cancel</button>
+      </section>
+      <form class="add-book-form">
+        <label for="title">Title</label>
+        <input name="title" id="title" type="text" />
+        <label for="author">Author</label>
+        <input name="author" id="author" type="text" />
+        <label for="pages">Pages</label>
+        <input name="pages" id="pages" type="text" />
+        <div class="read-status">
+          <input type="radio" name="read" id="hasRead" value="true" />
+          <label for="read">Read</label>
+          <input type="radio" name="read" id="notRead" value="false" />
+          <label for="read">Not Read</label>
+        </div>
+      </form>
     </section>
   </body>
 </html>

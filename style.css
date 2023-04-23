@@ -4,6 +4,14 @@
     box-sizing: border-box;
 }
 
+.header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.add-book-button {
+    width: 80px;
+}
 .books-cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));

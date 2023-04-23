@@ -1,12 +1,11 @@
 let myLibrary = [];
 
-
 function Book(title, author, pages, read) {
   this.title = title;
   this.author = author;
   this.pages = pages;
   this.read = read;
-  this.info = function () {
+  this.info = function info() {
     return `${title} by ${author}, ${pages} pages, ${read}.`;
   };
 }
@@ -21,10 +20,10 @@ bookCard.classList.add("book-card");
 
 // Create elements based on key/value pairs in theHobbit Ojbect, while
 // ignoring any functions within the Object
-const buildCard = function (bookOjbect) {
+const buildCard = (bookOjbect) => {
   Object.entries(bookOjbect).forEach(([key, value]) => {
     if (typeof value === "function") {
-      console.log(`${key} is a function`);
+      /* Do Nothing */
     } else {
       const newElement = document.createElement("p");
       newElement.classList.add(`${key}`);

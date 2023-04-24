@@ -1,4 +1,4 @@
-let myLibrary = []; // initialize empty library array
+const myLibrary = []; // initialize empty library array
 
 const addBookBtn = document.querySelector(".add-book-button"); // Button for add book
 const submitBookBtn = document.querySelector(".submit-book"); // Button for submitBook - global
@@ -146,7 +146,11 @@ const submitForm = () => {
       /* do nothing */
     }
   });
-  console.log(typeof pages);
+  
+  // Create new book object based on form inputs
+  const newBook = new Book(title, author, pages, read)
+  // Place in myLibrary array
+  myLibrary.push(newBook);
 };
 
 // Event listener for add book button

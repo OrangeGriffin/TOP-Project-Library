@@ -1,6 +1,7 @@
 let myLibrary = []; // initialize empty library array
 
 const addBookBtn = document.querySelector(".add-book-button"); // Button for add book
+const submitBookBtn = document.querySelector(".submit-book"); // Button for submitBook - global
 
 function Book(title, author, pages, read) {
   this.title = title;
@@ -69,7 +70,6 @@ const displayAddBookForm = () => {
   cancelBtn.style.display = "inline-block";
 
   // Display submit button by changing display property
-  const submitBookBtn = document.querySelector(".submit-book");
   submitBookBtn.style.display = "inline-block";
 
   // Remove add button while form is active
@@ -104,11 +104,48 @@ const clearForm = () => {
   cancelBtn.style.display = "none";
 
   // Hide submit button by changing display property
-  const submitBookBtn = document.querySelector(".submit-book");
   submitBookBtn.style.display = "none";
 
   // Re-dispaly add book button
   addBookBtn.style.display = "inline-block";
+};
+
+// Iterate through inputs to obtiain user inputted values
+const submitForm = () => {
+  const inputs = document.querySelectorAll("input");
+
+  let title;
+  let author;
+  let pages;
+  let read;
+
+  Object.entries(inputs).forEach(([value]) => {
+    switch (inputs[value].type) {
+      case "text":
+        switch (inputs[value].name) {
+          case "title":
+            title = inputs[value].value;
+            break;
+          case "author":
+            author = inputs[value].value;
+            break;
+          case "pages":
+            pages = inputs[value].value;
+            break;
+          default:
+          /* Do Nothing */
+        }
+        break;
+      case "radio":
+        if (inputs[value].checked === true) {
+          read = inputs[value].value;
+        }
+        break;
+      default:
+      /* do nothing */
+    }
+  });
+  console.log(title, author, pages, read);
 };
 
 // Event listener for add book button
@@ -119,4 +156,9 @@ addBookBtn.addEventListener("click", () => {
 const cancelBtn = document.querySelector(".cancel-add-book");
 cancelBtn.addEventListener("click", () => {
   clearForm();
+});
+
+// Event listener for submit book button
+submitBookBtn.addEventListener("click", () => {
+  submitForm();
 });

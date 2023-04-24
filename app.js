@@ -103,6 +103,10 @@ const clearForm = () => {
   const cancelBtn = document.querySelector(".cancel-add-book");
   cancelBtn.style.display = "none";
 
+  // Hide submit button by changing display property
+  const submitBookBtn = document.querySelector(".submit-book");
+  submitBookBtn.style.display = "none";
+
   // Re-dispaly add book button
   addBookBtn.style.display = "inline-block";
 };

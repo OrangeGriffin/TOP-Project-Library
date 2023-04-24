@@ -98,6 +98,9 @@ const clearForm = () => {
   // Hide cancel button
   const cancelBtn = document.querySelector(".cancel-add-book");
   cancelBtn.style.display = "none";
+
+  // Re-dispaly add book button
+  addBookBtn.style.display = "inline-block"
 };
 
 // Event listner for add book button

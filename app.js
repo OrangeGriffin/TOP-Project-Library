@@ -61,7 +61,13 @@ const buildCards = () => {
             const label = document.createElement("label");
             label.classList.add("switch");
             const input = document.createElement("input");
+            input.setAttribute("id", "read-status");
             input.setAttribute("type", "checkbox");
+            if (value === false) {
+                input.checked = false
+            } else if (value === true) {
+                input.checked = true
+            }
             label.appendChild(input);
             const span = document.createElement("span");
             span.classList.add("slider");

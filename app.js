@@ -13,14 +13,19 @@ function Book(title, author, pages, read) {
   };
 }
 
+// Create existing book objects
 const theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 295, false);
 const squeezeMe = new Book("Squeeze Me", "Carl Hiaasen", 353, true);
+
+// Place books in array
+myLibrary.push(theHobbit);
+myLibrary.push(squeezeMe);
 
 const bookCards = document.querySelector(".books-cards"); // Select the books-cards div
 
 // Create elements based on key/value pairs in theHobbit Ojbect, while
 // ignoring any functions within the Object
-const buildCard = (bookOjbect) => {
+const buildCard = myLibrary.forEach((bookOjbect) => {
   const bookCard = document.createElement("div");
   bookCard.classList.add("book-card");
   Object.entries(bookOjbect).forEach(([key, value]) => {
@@ -54,10 +59,10 @@ const buildCard = (bookOjbect) => {
     }
     bookCards.appendChild(bookCard);
   });
-};
+});
 
-buildCard(theHobbit);
-buildCard(squeezeMe);
+// buildCard(theHobbit);
+// buildCard(squeezeMe);
 
 // Display a form for add book
 const displayAddBookForm = () => {
@@ -159,7 +164,7 @@ const submitForm = () => {
 function showSnackbar() {
   const snackbar = document.getElementById("snackbar");
   snackbar.className = "show";
-  setTimeout( ()=> {
+  setTimeout(() => {
     snackbar.className = snackbar.className.replace("show", "");
   }, 3000);
 }
@@ -179,3 +184,7 @@ submitBookBtn.addEventListener("click", () => {
   submitForm();
   showSnackbar();
 });
+
+// Working on myLibrary array
+// Place existing books in array
+// myLibrary.forEach((book) => buildCard(book));

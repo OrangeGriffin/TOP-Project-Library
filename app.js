@@ -1,4 +1,4 @@
-const myLibrary = []; // initialize empty library array
+let myLibrary = []; // initialize empty library array
 
 const addBookBtn = document.querySelector(".add-book-button"); // Button for add book
 const submitBookBtn = document.querySelector(".submit-book"); // Button for submitBook - global
@@ -199,8 +199,18 @@ function showSnackbar() {
 }
 
 const updateReadStatus = (bookIndex) => {
-    
-}
+  const readStatus = myLibrary[bookIndex].read;
+  if (readStatus === true) {
+    myLibrary[bookIndex].read = false;
+  } else {
+    myLibrary[bookIndex].read = true;
+  }
+  
+};
+
+const deleteBook = (bookIndex) => {
+  myLibrary = myLibrary.filter((item) => item !== bookIndex);
+};
 
 // Event listener for add book button
 addBookBtn.addEventListener("click", () => {
@@ -223,6 +233,6 @@ const readToggles = document.querySelectorAll(".read-status"); // Toggle for rea
 readToggles.forEach((toggle) => {
   toggle.addEventListener("click", (e) => {
     const bookIndex = e.target.parentElement.parentElement.id;
-    updateReadStatus(bookIndex)
+    updateReadStatus(bookIndex);
   });
 });

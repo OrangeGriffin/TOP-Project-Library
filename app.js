@@ -49,14 +49,6 @@ const buildCards = () => {
             bookCard.append(newElement);
             break;
           case "read": {
-            /*             if (value === false) {
-              newElement.innerText = "Not Read";
-              break;
-            } else {
-              newElement.innerText = "Read";
-              break;
-            } */
-
             const fragment = document.createDocumentFragment();
             const label = document.createElement("label");
             label.classList.add("switch");
@@ -64,9 +56,9 @@ const buildCards = () => {
             input.setAttribute("id", "read-status");
             input.setAttribute("type", "checkbox");
             if (value === false) {
-                input.checked = false
+              input.checked = false;
             } else if (value === true) {
-                input.checked = true
+              input.checked = true;
             }
             label.appendChild(input);
             const span = document.createElement("span");

@@ -91,6 +91,13 @@ const clearForm = () => {
       /* do nothing */
     }
   });
+
+  // Hide form
+  form.style.display = "none";
+
+  // Hide cancel button
+  const cancelBtn = document.querySelector(".cancel-add-book");
+  cancelBtn.style.display = "none";
 };
 
 // Event listner for add book button

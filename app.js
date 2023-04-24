@@ -60,10 +60,30 @@ buildCard(squeezeMe);
 
 // Display a form for add book
 const displayAddBookForm = () => {
+  // Display from by changing display property
+  const addBookForm = document.querySelector(".add-book-form");
+  addBookForm.style.display = "flex";
 
+  // Display cancel button by changing display property
+  const cancelBtn = document.querySelector(".cancel-add-book");
+  cancelBtn.style.display = "inline-block";
+
+  // Remove add button while form is active
+  const addButton = document.querySelector(".add-book-button");
+  addButton.style.display = "none";
+};
+
+const clearForm = () => {
+  const form = document.querySelector(".add-book-form");
+  const inputs = form.querySelectorAll("input");
 };
 
 // Event listner for add book button
 addBookBtn.addEventListener("click", () => {
   displayAddBookForm();
+});
+
+const cancelBtn = document.querySelector(".cancel-add-book");
+cancelBtn.addEventListener("click", () => {
+  clearForm();
 });

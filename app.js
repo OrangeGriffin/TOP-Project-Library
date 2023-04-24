@@ -214,7 +214,9 @@ submitBookBtn.addEventListener("click", () => {
 const readToggles = document.querySelectorAll('.read-status'); // Toggle for read status
 // Event listener for the read toggle
 readToggles.forEach((toggle) => {
-    toggle.addEventListener("click", () => {
-        console.log(event)
+    toggle.addEventListener("click", (e) => {
+        const parentDiv = e.target.parentElement.parentElement
+        const title = parentDiv.querySelector('.title')
+        console.log(title)
     })
 })

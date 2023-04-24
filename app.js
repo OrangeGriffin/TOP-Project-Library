@@ -26,6 +26,7 @@ const bookCards = document.querySelector(".books-cards"); // Select the books-ca
 // Create elements based on key/value pairs in theHobbit Ojbect, while
 // ignoring any functions within the Object
 const buildCards = () => {
+  let bookID = 1;
   myLibrary.forEach((bookOjbect) => {
     const bookCard = document.createElement("div");
     bookCard.classList.add("book-card");
@@ -38,6 +39,7 @@ const buildCards = () => {
         switch (`${key}`) {
           case "title":
             newElement.innerText = `Title: ${value}`;
+            bookCard.setAttribute("id", `${bookID}`);
             bookCard.append(newElement);
             break;
           case "author":
@@ -75,6 +77,7 @@ const buildCards = () => {
       }
       bookCards.appendChild(bookCard);
     });
+    bookID += 1;
   });
 };
 
@@ -211,12 +214,12 @@ submitBookBtn.addEventListener("click", () => {
   showSnackbar();
 });
 
-const readToggles = document.querySelectorAll('.read-status'); // Toggle for read status
+const readToggles = document.querySelectorAll(".read-status"); // Toggle for read status
 // Event listener for the read toggle
 readToggles.forEach((toggle) => {
-    toggle.addEventListener("click", (e) => {
-        const parentDiv = e.target.parentElement.parentElement
-        const title = parentDiv.querySelector('.title')
-        console.log(title)
-    })
-})
+  toggle.addEventListener("click", (e) => {
+    const parentDiv = e.target.parentElement.parentElement;
+    const title = parentDiv.querySelector(".title");
+    console.log(title);
+  });
+});

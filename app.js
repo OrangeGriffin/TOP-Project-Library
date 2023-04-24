@@ -45,14 +45,29 @@ const buildCards = () => {
           case "pages":
             newElement.innerText = `Pages: ${value}`;
             break;
-          case "read":
-            if (value === false) {
+          case "read": {
+            /*             if (value === false) {
               newElement.innerText = "Not Read";
               break;
             } else {
               newElement.innerText = "Read";
               break;
-            }
+            } */
+
+            const fragment = document.createDocumentFragment();
+            const label = document.createElement("label");
+            label.classList.add("switch");
+            const input = document.createElement("input");
+            input.setAttribute("type", "checkbox");
+            label.appendChild(input);
+            const span = document.createElement("span");
+            span.classList.add("slider");
+            label.appendChild(span);
+            fragment.append(label);
+            bookCard.append(fragment);
+            break;
+          }
+
           default:
             newElement.innerText = `${value}`;
         }

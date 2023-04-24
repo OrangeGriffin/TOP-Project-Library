@@ -77,6 +77,10 @@ const buildCards = () => {
       }
       bookCards.appendChild(bookCard);
     });
+    const deleteImg = document.createElement("img");
+    deleteImg.classList.add('delete-book')
+    deleteImg.src = "images/trash-can-outline.svg";
+    bookCard.appendChild(deleteImg);
     bookIndex += 1;
   });
 };
@@ -198,7 +202,7 @@ function showSnackbar() {
   }, 3000);
 }
 
-// When the read toggle is clicked on the card the 
+// When the read toggle is clicked on the card the
 // read property of the particular book is updated.
 // Next, clearBookCards and and buildCards is called
 // to refresh the cards

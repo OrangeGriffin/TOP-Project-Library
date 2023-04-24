@@ -27,6 +27,7 @@
 
 .book-card {
   background-color: whitesmoke;
+  position: relative;
   margin-top: 5px;
   padding-left: 5px;
   padding-top: 5px;
@@ -62,6 +63,19 @@
 
 .read-status {
   margin-top: 5px;
+}
+
+.delete-book {
+    width: 20px;
+    height: auto;
+    position: absolute;
+    bottom: 3px;
+    right: 3px;
+}
+
+.delete-book:hover {
+    background-color: rgb(197, 7, 7);
+    opacity: .7;
 }
 
 #snackbar {

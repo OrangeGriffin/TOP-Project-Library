@@ -146,14 +146,23 @@ const submitForm = () => {
       /* do nothing */
     }
   });
-  
+
   // Create new book object based on form inputs
-  const newBook = new Book(title, author, pages, read)
+  const newBook = new Book(title, author, pages, read);
   // Place in myLibrary array
   myLibrary.push(newBook);
 
   clearForm();
 };
+
+// Show snackbar
+function showSnackbar() {
+  const snackbar = document.getElementById("snackbar");
+  snackbar.className = "show";
+  setTimeout( ()=> {
+    snackbar.className = snackbar.className.replace("show", "");
+  }, 3000);
+}
 
 // Event listener for add book button
 addBookBtn.addEventListener("click", () => {
@@ -168,4 +177,5 @@ cancelBtn.addEventListener("click", () => {
 // Event listener for submit book button
 submitBookBtn.addEventListener("click", () => {
   submitForm();
+  showSnackbar();
 });

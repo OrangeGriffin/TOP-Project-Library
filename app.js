@@ -68,6 +68,10 @@ const displayAddBookForm = () => {
   const cancelBtn = document.querySelector(".cancel-add-book");
   cancelBtn.style.display = "inline-block";
 
+  // Dispaly submit button by changing display property
+  const submitBookBtn = document.querySelector(".submit-book");
+  submitBookBtn.style.display = "inline-block";
+
   // Remove add button while form is active
   const addButton = document.querySelector(".add-book-button");
   addButton.style.display = "none";
@@ -100,7 +104,7 @@ const clearForm = () => {
   cancelBtn.style.display = "none";
 
   // Re-dispaly add book button
-  addBookBtn.style.display = "inline-block"
+  addBookBtn.style.display = "inline-block";
 };
 
 // Event listner for add book button

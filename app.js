@@ -111,7 +111,7 @@ const clearForm = () => {
   addBookBtn.style.display = "inline-block";
 };
 
-// Event listner for add book button
+// Event listener for add book button
 addBookBtn.addEventListener("click", () => {
   displayAddBookForm();
 });

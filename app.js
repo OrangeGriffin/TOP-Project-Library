@@ -198,6 +198,10 @@ function showSnackbar() {
   }, 3000);
 }
 
+// When the read toggle is clicked on the card the 
+// read property of the particular book is updated.
+// Next, clearBookCards and and buildCards is called
+// to refresh the cards
 const updateReadStatus = (bookIndex) => {
   const readStatus = myLibrary[bookIndex].read;
   if (readStatus === true) {
@@ -205,7 +209,8 @@ const updateReadStatus = (bookIndex) => {
   } else {
     myLibrary[bookIndex].read = true;
   }
-  
+  clearBooksCards();
+  buildCards();
 };
 
 const deleteBook = (bookIndex) => {

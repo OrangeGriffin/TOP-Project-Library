@@ -78,7 +78,7 @@ const buildCards = () => {
       bookCards.appendChild(bookCard);
     });
     const deleteImg = document.createElement("img");
-    deleteImg.classList.add('delete-book')
+    deleteImg.classList.add("delete-book");
     deleteImg.src = "images/trash-can-outline.svg";
     bookCard.appendChild(deleteImg);
     bookIndex += 1;
@@ -218,7 +218,10 @@ const updateReadStatus = (bookIndex) => {
 };
 
 const deleteBook = (bookIndex) => {
-  myLibrary = myLibrary.filter((item) => item !== bookIndex);
+  myLibrary.splice(bookIndex, 1);
+  console.log(myLibrary)
+  clearBooksCards();
+  buildCards();
 };
 
 // Event listener for add book button
@@ -243,5 +246,13 @@ readToggles.forEach((toggle) => {
   toggle.addEventListener("click", (e) => {
     const bookIndex = e.target.parentElement.parentElement.id;
     updateReadStatus(bookIndex);
+  });
+});
+
+const deleteBookBtn = document.querySelectorAll(".delete-book");
+deleteBookBtn.forEach((button) => {
+  button.addEventListener("click", (e) => {
+    const bookIndex = e.target.parentElement.id;
+    deleteBook(bookIndex);
   });
 });

@@ -1,25 +1,25 @@
 let myLibrary = []; // initialize empty library array
+// Create existing book objects
+const theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 295, false);
+const squeezeMe = new Book("Squeeze Me", "Carl Hiaasen", 353, true);
+// Place books in array
+myLibrary.push(theHobbit);
+myLibrary.push(squeezeMe);
+
+// The book constructor
+function Book(title, author, pages, read) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+    this.info = function info() {
+      return `${title} by ${author}, ${pages} pages, ${read}.`;
+    };
+  }
 
 const addBookBtn = document.querySelector(".add-book-button"); // Button for add book
 const submitBookBtn = document.querySelector(".submit-book"); // Button for submitBook - global
 
-function Book(title, author, pages, read) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
-  this.info = function info() {
-    return `${title} by ${author}, ${pages} pages, ${read}.`;
-  };
-}
-
-// Create existing book objects
-const theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 295, false);
-const squeezeMe = new Book("Squeeze Me", "Carl Hiaasen", 353, true);
-
-// Place books in array
-myLibrary.push(theHobbit);
-myLibrary.push(squeezeMe);
 
 const bookCards = document.querySelector(".books-cards"); // Select the books-cards div
 
@@ -138,14 +138,6 @@ const clearForm = () => {
   addBookBtn.style.display = "inline-block";
 };
 
-// Remove all conents from book-cards
-function clearBooksCards() {
-  const divElement = document.querySelector(".books-cards");
-  while (divElement.firstChild) {
-    divElement.removeChild(divElement.firstChild);
-  }
-}
-
 // Iterate through inputs to obtiain user inputted values
 const submitForm = () => {
   const inputs = document.querySelectorAll("input");
@@ -187,8 +179,6 @@ const submitForm = () => {
   const newBook = new Book(title, author, pages, read);
   // Place in myLibrary array
   myLibrary.push(newBook);
-
-  clearBooksCards();
   buildCards();
   clearForm();
 };
@@ -213,14 +203,6 @@ const updateReadStatus = (bookIndex) => {
   } else {
     myLibrary[bookIndex].read = true;
   }
-  clearBooksCards();
-  buildCards();
-};
-
-const deleteBook = (bookIndex) => {
-  myLibrary.splice(bookIndex, 1);
-  console.log(myLibrary)
-  clearBooksCards();
   buildCards();
 };
 
@@ -246,13 +228,5 @@ readToggles.forEach((toggle) => {
   toggle.addEventListener("click", (e) => {
     const bookIndex = e.target.parentElement.parentElement.id;
     updateReadStatus(bookIndex);
-  });
-});
-
-const deleteBookBtn = document.querySelectorAll(".delete-book");
-deleteBookBtn.forEach((button) => {
-  button.addEventListener("click", (e) => {
-    const bookIndex = e.target.parentElement.id;
-    deleteBook(bookIndex);
   });
 });

@@ -164,6 +164,14 @@ const submitForm = () => {
   clearForm();
 };
 
+// Remove all conents from book-cards
+function clearBooksCards() {
+    const divElement = document.querySelector(".books-cards");
+    while (divElement.firstChild) {
+       divElement.removeChild(divElement.firstChild);
+    }
+ }
+
 // Show snackbar
 function showSnackbar() {
   const snackbar = document.getElementById("snackbar");

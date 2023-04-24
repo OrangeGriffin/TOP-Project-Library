@@ -68,7 +68,7 @@ const displayAddBookForm = () => {
   const cancelBtn = document.querySelector(".cancel-add-book");
   cancelBtn.style.display = "inline-block";
 
-  // Dispaly submit button by changing display property
+  // Display submit button by changing display property
   const submitBookBtn = document.querySelector(".submit-book");
   submitBookBtn.style.display = "inline-block";
 

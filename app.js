@@ -151,6 +151,8 @@ const submitForm = () => {
   const newBook = new Book(title, author, pages, read)
   // Place in myLibrary array
   myLibrary.push(newBook);
+
+  clearForm();
 };
 
 // Event listener for add book button

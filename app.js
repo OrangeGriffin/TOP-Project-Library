@@ -74,8 +74,23 @@ const displayAddBookForm = () => {
 };
 
 const clearForm = () => {
+  // Select all inputs in the form
+  // clear of entered values from inputs
+  // Set radio buttons to unchecked
   const form = document.querySelector(".add-book-form");
   const inputs = form.querySelectorAll("input");
+  Object.entries(inputs).forEach(([value]) => {
+    switch (inputs[value].type) {
+      case "text":
+        inputs[value].value = "";
+        break;
+      case "radio":
+        inputs[value].checked = false;
+        break;
+      default:
+      /* do nothing */
+    }
+  });
 };
 
 // Event listner for add book button

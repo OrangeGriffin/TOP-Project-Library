@@ -53,7 +53,7 @@ const buildCards = () => {
             const label = document.createElement("label");
             label.classList.add("switch");
             const input = document.createElement("input");
-            input.setAttribute("id", "read-status");
+            input.classList.add("read-status");
             input.setAttribute("type", "checkbox");
             if (value === false) {
               input.checked = false;
@@ -210,3 +210,11 @@ submitBookBtn.addEventListener("click", () => {
   submitForm();
   showSnackbar();
 });
+
+const readToggles = document.querySelectorAll('.read-status'); // Toggle for read status
+// Event listener for the read toggle
+readToggles.forEach((toggle) => {
+    toggle.addEventListener("click", () => {
+        console.log(event)
+    })
+})

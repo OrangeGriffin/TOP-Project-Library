@@ -116,6 +116,14 @@ const clearForm = () => {
   addBookBtn.style.display = "inline-block";
 };
 
+// Remove all conents from book-cards
+function clearBooksCards() {
+  const divElement = document.querySelector(".books-cards");
+  while (divElement.firstChild) {
+    divElement.removeChild(divElement.firstChild);
+  }
+}
+
 // Iterate through inputs to obtiain user inputted values
 const submitForm = () => {
   const inputs = document.querySelectorAll("input");
@@ -158,19 +166,10 @@ const submitForm = () => {
   // Place in myLibrary array
   myLibrary.push(newBook);
 
-  debugger;
+  clearBooksCards();
   buildCards();
-
   clearForm();
 };
-
-// Remove all conents from book-cards
-function clearBooksCards() {
-    const divElement = document.querySelector(".books-cards");
-    while (divElement.firstChild) {
-       divElement.removeChild(divElement.firstChild);
-    }
- }
 
 // Show snackbar
 function showSnackbar() {

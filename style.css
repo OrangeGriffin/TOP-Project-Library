@@ -52,6 +52,10 @@
   display: none;
 }
 
+.submit-book {
+    display: none;
+}
+
 .add-book-form label:not(:first-child) {
   margin-top: 5px;
 }

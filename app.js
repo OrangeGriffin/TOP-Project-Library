@@ -130,7 +130,8 @@ const submitForm = () => {
             author = inputs[value].value;
             break;
           case "pages":
-            pages = inputs[value].value;
+            pages = Number.parseInt(inputs[value].value, 10);
+
             break;
           default:
           /* Do Nothing */
@@ -145,7 +146,7 @@ const submitForm = () => {
       /* do nothing */
     }
   });
-  console.log(title, author, pages, read);
+  console.log(typeof pages);
 };
 
 // Event listener for add book button

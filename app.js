@@ -38,12 +38,15 @@ const buildCards = () => {
         switch (`${key}`) {
           case "title":
             newElement.innerText = `Title: ${value}`;
+            bookCard.append(newElement);
             break;
           case "author":
             newElement.innerText = `Author: ${value}`;
+            bookCard.append(newElement);
             break;
           case "pages":
             newElement.innerText = `Pages: ${value}`;
+            bookCard.append(newElement);
             break;
           case "read": {
             /*             if (value === false) {
@@ -71,7 +74,6 @@ const buildCards = () => {
           default:
             newElement.innerText = `${value}`;
         }
-        bookCard.append(newElement);
       }
       bookCards.appendChild(bookCard);
     });

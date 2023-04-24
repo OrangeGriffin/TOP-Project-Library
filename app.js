@@ -1,26 +1,26 @@
 let myLibrary = []; // initialize empty library array
+
+// The book constructor
+function Book(title, author, pages, read) {
+  this.title = title;
+  this.author = author;
+  this.pages = pages;
+  this.read = read;
+  this.info = function info() {
+    return `${title} by ${author}, ${pages} pages, ${read}.`;
+  };
+}
+
 // Create existing book objects
 const theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 295, false);
 const squeezeMe = new Book("Squeeze Me", "Carl Hiaasen", 353, true);
+
 // Place books in array
 myLibrary.push(theHobbit);
 myLibrary.push(squeezeMe);
 
-// The book constructor
-function Book(title, author, pages, read) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
-    this.info = function info() {
-      return `${title} by ${author}, ${pages} pages, ${read}.`;
-    };
-  }
-
 const addBookBtn = document.querySelector(".add-book-button"); // Button for add book
 const submitBookBtn = document.querySelector(".submit-book"); // Button for submitBook - global
-
-
 const bookCards = document.querySelector(".books-cards"); // Select the books-cards div
 
 // Create elements based on key/value pairs in theHobbit Ojbect, while
@@ -179,7 +179,6 @@ const submitForm = () => {
   const newBook = new Book(title, author, pages, read);
   // Place in myLibrary array
   myLibrary.push(newBook);
-  buildCards();
   clearForm();
 };
 
@@ -203,7 +202,6 @@ const updateReadStatus = (bookIndex) => {
   } else {
     myLibrary[bookIndex].read = true;
   }
-  buildCards();
 };
 
 // Event listener for add book button

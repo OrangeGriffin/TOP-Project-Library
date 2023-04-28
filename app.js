@@ -29,7 +29,7 @@ myLibrary.push(squeezeMe);
 
 // Display myLibrary in DOM
 const renderCards = (array) => {
-  let bookId = 1;
+  let bookId = 0;
   array.forEach((bookObject) => {
     const bookCard = document.createElement("div");
     bookCard.classList.add("book-card");

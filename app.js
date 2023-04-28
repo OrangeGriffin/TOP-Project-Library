@@ -91,14 +91,14 @@ const displayAddBookForm = () => {
 
 const addBook = () => {
   const title = document.querySelector("#title").value;
-  const author = document.querySelector("#author").value
-  const pages = document.querySelector("#pages").value
-  let read = document.querySelector("#hasRead")
+  const author = document.querySelector("#author").value;
+  const pages = document.querySelector("#pages").value;
+  let read = document.querySelector("#hasRead");
 
   if (read.checked) {
-    read = true
+    read = true;
   } else {
-    read = false
+    read = false;
   }
 
   const newBook = new Book(title, author, pages, read);
@@ -106,15 +106,24 @@ const addBook = () => {
 };
 
 addBookButtons.addEventListener("click", (e) => {
-    switch (e.target.className) {
-        case "add-book-button":
-            displayAddBookForm();
-            break;
-            case "submit-book":
-                addBook();
-                reRender();
-                break;
-            default:
-                /* Do Nothing */
-    }
-})
+  const submitBtn = document.querySelector(".submit-book");
+  const cancelBtn = document.querySelector(".cancel-add-book");
+
+  switch (e.target.className) {
+    case "add-book-button":
+      displayAddBookForm();
+      break;
+    case "submit-book":
+      addBook();
+      reRender();
+
+      submitBtn.style.display = "none";
+      cancelBtn.style.display = "none";
+
+      addBookButton.style.display = "flex";
+      addBookForm.style.display = "none";
+      break;
+    default:
+    /* Do Nothing */
+  }
+});

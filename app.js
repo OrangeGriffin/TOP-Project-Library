@@ -62,10 +62,10 @@ const renderCards = (array) => {
           default:
           /* Do nothing */
         }
-        const trashIcon = document.createElement("img")
-        trashIcon.classList.add("delete-book")
-        trashIcon.src = "./images/trash-can-outline.svg"
-        bookCard.appendChild(trashIcon)
+        const trashIcon = document.createElement("img");
+        trashIcon.classList.add("delete-book");
+        trashIcon.src = "./images/trash-can-outline.svg";
+        bookCard.appendChild(trashIcon);
       }
       booksCards.appendChild(bookCard);
     });
@@ -109,6 +109,10 @@ const addBook = () => {
   myLibrary.push(newBook);
 };
 
+const deleteBook = (book) => {
+  console.log("Book title: ", book);
+};
+
 addBookButtons.addEventListener("click", (e) => {
   const submitBtn = document.querySelector(".submit-book");
   const cancelBtn = document.querySelector(".cancel-add-book");
@@ -133,13 +137,20 @@ addBookButtons.addEventListener("click", (e) => {
 
       addBookButton.style.display = "flex";
       addBookForm.style.display = "none";
-      document.querySelector("#title").value = ""
-      document.querySelector("#author").value = ""
-      document.querySelector("#pages").value = ""
-      document.querySelector("#hasRead").checked = false
+      document.querySelector("#title").value = "";
+      document.querySelector("#author").value = "";
+      document.querySelector("#pages").value = "";
+      document.querySelector("#hasRead").checked = false;
       document.querySelector("#notRead").checked = false;
       break;
     default:
     /* Do Nothing */
+  }
+});
+
+booksCards.addEventListener("click", (e) => {
+  if (e.target.className === "delete-book") {
+    console.log(e.target.parentElement);
+    // deleteBook(book);
   }
 });

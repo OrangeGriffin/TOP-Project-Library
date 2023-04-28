@@ -19,7 +19,7 @@ const squeezeMe = new Book("Squeeze Me", "Carl Hiaasen", 353, true);
 const booksCards = document.querySelector(".books-cards");
 const addBookButtons = document.querySelector(".add-book-buttons");
 const addBookButton = document.querySelector(".add-book-button");
-const addBookForm = document.querySelector(".add-book-form");
+const addBookInputs = document.querySelector(".add-book-inputs");
 
 // Place books in array
 myLibrary.push(theHobbit);
@@ -87,7 +87,7 @@ const reRender = () => {
 const displayAddBookForm = () => {
   addBookButton.style.display = "none";
 
-  addBookForm.style.display = "flex";
+  addBookInputs.style.display = "flex";
 
   const submitBtn = document.querySelector(".submit-book");
   submitBtn.style.display = "flex";

@@ -39,13 +39,17 @@
   gap: 3px;
 }
 
+.add-book-button {
+    display: flex;
+}
+
 .add-book-section {
   display: flex;
   justify-content: start;
   margin-top: 8px;
 }
 
-.add-book-form {
+.add-book-inputs {
   flex-direction: column;
   margin-left: 5px;
   background-color: #cbd5e1;

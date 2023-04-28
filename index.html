@@ -16,12 +16,13 @@
       <section class="books-cards"></section>
     </section>
     <section class="add-book-section">
-      <section class="add-book-buttons">
-        <button type="button" class="add-book-button">Add Book</button>
-        <button type="button" class="cancel-add-book">Cancel</button>
-        <button type="button" class="submit-book">Submit</button>
-      </section>
       <form class="add-book-form">
+        <section class="add-book-buttons">
+          <button type="button" class="add-book-button">Add Book</button>
+          <button type="button" class="cancel-add-book">Cancel</button>
+          <button type="button" class="submit-book">Submit</button>
+        </section>
+        <section class="add-book-inputs">
         <label for="title">Title</label>
         <input name="title" id="title" type="text" />
         <label for="author">Author</label>
@@ -34,6 +35,7 @@
           <input type="radio" name="read" id="notRead" value="false" />
           <label for="read">Not Read</label>
         </div>
+        </section>
       </form>
       <div class="submit-successful" id="snackbar">Book Submitted</div>
     </section>

@@ -17,6 +17,7 @@ const squeezeMe = new Book("Squeeze Me", "Carl Hiaasen", 353, true);
 
 // Document querSelectors
 const booksCards = document.querySelector(".books-cards");
+const addBookButtons = document.querySelector(".add-book-buttons");
 const addBookButton = document.querySelector(".add-book-button");
 const addBookForm = document.querySelector(".add-book-form");
 
@@ -77,7 +78,45 @@ const reRender = () => {
 };
 
 const displayAddBookForm = () => {
+  addBookButton.style.display = "none";
+
   addBookForm.style.display = "flex";
+
+  const submitBtn = document.querySelector(".submit-book");
+  submitBtn.style.display = "flex";
+
+  const cancelBtn = document.querySelector(".cancel-add-book");
+  cancelBtn.style.display = "flex";
 };
 
-addBookButton.addEventListener("click", displayAddBookForm);
+// addBookButton.addEventListener("click", displayAddBookForm);
+
+const addBook = () => {
+  const title = document.querySelector("#title").value;
+  const author = document.querySelector("#author").value
+  const pages = document.querySelector("#pages").value
+  let read = document.querySelector("#hasRead")
+
+  if (read.checked) {
+    read = true
+  } else {
+    read = false
+  }
+
+  const newBook = new Book(title, author, pages, read);
+  myLibrary.push(newBook);
+};
+
+addBookButtons.addEventListener("click", (e) => {
+    switch (e.target.className) {
+        case "add-book-button":
+            displayAddBookForm();
+            break;
+            case "submit-book":
+                addBook();
+                reRender();
+                break;
+            default:
+                /* Do Nothing */
+    }
+})

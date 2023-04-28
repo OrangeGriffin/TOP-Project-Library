@@ -17,6 +17,8 @@ const squeezeMe = new Book("Squeeze Me", "Carl Hiaasen", 353, true);
 
 // Document querSelectors
 const booksCards = document.querySelector(".books-cards");
+const addBookButton = document.querySelector(".add-book-button");
+const addBookForm = document.querySelector(".add-book-form");
 
 // Place books in array
 myLibrary.push(theHobbit);
@@ -26,8 +28,6 @@ myLibrary.push(squeezeMe);
 
 // Display myLibrary in DOM
 const renderCards = (array) => {
-  
-
   array.forEach((bookObject) => {
     const bookCard = document.createElement("div");
     bookCard.classList.add("book-card");
@@ -54,9 +54,9 @@ const renderCards = (array) => {
             bookCard.appendChild(pagesElement);
             break;
           case "read":
-            readElement.innerText = `Read: ${value}`
-            bookCard.appendChild(readElement)
-            break
+            readElement.innerText = `Read: ${value}`;
+            bookCard.appendChild(readElement);
+            break;
 
           default:
           /* Do nothing */
@@ -72,8 +72,12 @@ renderCards(myLibrary);
 
 // Function to re-render the books array
 const reRender = () => {
-    booksCards.innerText = ''
-    renderCards(myLibrary);
-}
+  booksCards.innerText = "";
+  renderCards(myLibrary);
+};
 
+const displayAddBookForm = () => {
+  addBookForm.style.display = "flex";
+};
 
+addBookButton.addEventListener("click", displayAddBookForm);

@@ -70,7 +70,6 @@ const renderCards = (array) => {
         bookCard.appendChild(trashIcon);
       }
       booksCards.appendChild(bookCard);
-      
     });
     bookId += 1;
   });
@@ -113,8 +112,8 @@ const addBook = () => {
   myLibrary.push(newBook);
 };
 
-const deleteBook = (book) => {
-  console.log("Book title: ", book);
+const deleteBook = (bookIndex) => {
+  console.log(bookIndex);
 };
 
 addBookButtons.addEventListener("click", (e) => {
@@ -154,7 +153,7 @@ addBookButtons.addEventListener("click", (e) => {
 
 booksCards.addEventListener("click", (e) => {
   if (e.target.className === "delete-book") {
-    console.log(e.target.parentElement);
-    // deleteBook(book);
+    bookIndex = e.target.parentElement.id;
+    deleteBook(bookIndex)
   }
 });

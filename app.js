@@ -15,6 +15,9 @@ function Book(title, author, pages, read) {
 const theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 295, false);
 const squeezeMe = new Book("Squeeze Me", "Carl Hiaasen", 353, true);
 
+// Document querSelectors
+const booksCards = document.querySelector(".books-cards");
+
 // Place books in array
 myLibrary.push(theHobbit);
 myLibrary.push(squeezeMe);
@@ -23,7 +26,7 @@ myLibrary.push(squeezeMe);
 
 // Display myLibrary in DOM
 const renderCards = (array) => {
-  const booksCards = document.querySelector(".books-cards");
+  
 
   array.forEach((bookObject) => {
     const bookCard = document.createElement("div");
@@ -64,4 +67,13 @@ const renderCards = (array) => {
   });
 };
 
+// Display existing books
 renderCards(myLibrary);
+
+// Function to re-render the books array
+const reRender = () => {
+    booksCards.innerText = ''
+    renderCards(myLibrary);
+}
+
+

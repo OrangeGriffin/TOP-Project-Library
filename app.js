@@ -153,7 +153,7 @@ addBookButtons.addEventListener("click", (e) => {
 
 booksCards.addEventListener("click", (e) => {
   if (e.target.className === "delete-book") {
-    bookIndex = e.target.parentElement.id;
+    const bookIndex = e.target.parentElement.id;
     deleteBook(bookIndex)
   }
 });

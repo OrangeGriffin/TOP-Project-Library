@@ -89,8 +89,6 @@ const displayAddBookForm = () => {
   cancelBtn.style.display = "flex";
 };
 
-// addBookButton.addEventListener("click", displayAddBookForm);
-
 const addBook = () => {
   const title = document.querySelector("#title").value;
   const author = document.querySelector("#author").value

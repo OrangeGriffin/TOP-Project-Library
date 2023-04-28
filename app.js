@@ -29,6 +29,7 @@ myLibrary.push(squeezeMe);
 
 // Display myLibrary in DOM
 const renderCards = (array) => {
+  let bookId = 1;
   array.forEach((bookObject) => {
     const bookCard = document.createElement("div");
     bookCard.classList.add("book-card");
@@ -65,10 +66,13 @@ const renderCards = (array) => {
         const trashIcon = document.createElement("img");
         trashIcon.classList.add("delete-book");
         trashIcon.src = "./images/trash-can-outline.svg";
+        bookCard.setAttribute("id", bookId);
         bookCard.appendChild(trashIcon);
       }
       booksCards.appendChild(bookCard);
+      
     });
+    bookId += 1;
   });
 };
 

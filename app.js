@@ -133,14 +133,14 @@ addBookButtons.addEventListener("click", (e) => {
       cancelBtn.style.display = "none";
 
       addBookButton.style.display = "flex";
-      addBookForm.style.display = "none";
+      addBookInputs.style.display = "none";
       break;
     case "cancel-add-book":
       submitBtn.style.display = "none";
       cancelBtn.style.display = "none";
 
       addBookButton.style.display = "flex";
-      addBookForm.style.display = "none";
+      addBookInputs.style.display = "none";
       document.querySelector("#title").value = "";
       document.querySelector("#author").value = "";
       document.querySelector("#pages").value = "";

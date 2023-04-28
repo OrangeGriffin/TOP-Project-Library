@@ -113,7 +113,8 @@ const addBook = () => {
 };
 
 const deleteBook = (bookIndex) => {
-  console.log(bookIndex);
+  myLibrary.splice(bookIndex, 1);
+  reRender()
 };
 
 addBookButtons.addEventListener("click", (e) => {

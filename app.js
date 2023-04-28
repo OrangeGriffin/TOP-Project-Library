@@ -62,6 +62,10 @@ const renderCards = (array) => {
           default:
           /* Do nothing */
         }
+        const trashIcon = document.createElement("img")
+        trashIcon.classList.add("delete-book")
+        trashIcon.src = "./images/trash-can-outline.svg"
+        bookCard.appendChild(trashIcon)
       }
       booksCards.appendChild(bookCard);
     });

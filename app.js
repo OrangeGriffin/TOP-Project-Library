@@ -19,6 +19,8 @@ const squeezeMe = new Book("Squeeze Me", "Carl Hiaasen", 353, true);
 myLibrary.push(theHobbit);
 myLibrary.push(squeezeMe);
 
+/// FUNCTIONS ///////////////////
+
 // Display myLibrary in DOM
 const renderCards = (array) => {
   const booksCards = document.querySelector(".books-cards");
@@ -28,6 +30,9 @@ const renderCards = (array) => {
     bookCard.classList.add("book-card");
     Object.entries(bookObject).forEach(([key, value]) => {
       const titleElement = document.createElement("p");
+      const authorEleemnt = document.createElement("p");
+      const pagesElement = document.createElement("p");
+      const readElement = document.createElement("p");
       if (typeof value === "function") {
         /* Do nothing */
       } else {
@@ -37,8 +42,21 @@ const renderCards = (array) => {
             bookCard.appendChild(titleElement);
 
             break;
+          case "author":
+            authorEleemnt.innerText = `Author: ${value}`;
+            bookCard.appendChild(authorEleemnt);
+            break;
+          case "pages":
+            pagesElement.innerText = `Pages: ${value}`;
+            bookCard.appendChild(pagesElement);
+            break;
+          case "read":
+            readElement.innerText = `Read: ${value}`
+            bookCard.appendChild(readElement)
+            break
+
           default:
-          //console.log("default");
+          /* Do nothing */
         }
       }
       booksCards.appendChild(bookCard);

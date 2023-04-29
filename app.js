@@ -37,7 +37,10 @@ const renderCards = (array) => {
       const titleElement = document.createElement("p");
       const authorEleemnt = document.createElement("p");
       const pagesElement = document.createElement("p");
-      const readElement = document.createElement("p");
+      const readElement = document.createElement("input");
+
+      const readElementLabel = document.createElement("label");
+
       if (typeof value === "function") {
         /* Do nothing */
       } else {
@@ -56,9 +59,14 @@ const renderCards = (array) => {
             bookCard.appendChild(pagesElement);
             break;
           case "read":
-            readElement.classList.add("read-status")
-            readElement.innerText = `Read: ${value}`;
+            readElement.classList.add("read-status");
+            readElement.setAttribute("type", "checkbox");
+            readElement.classList.add("checkbox");
+            readElement.setAttribute("id", "toggle");
+            readElementLabel.classList.add("switch");
+            readElementLabel.setAttribute("for", "toggle");
             bookCard.appendChild(readElement);
+            bookCard.appendChild(readElementLabel);
             break;
 
           default:

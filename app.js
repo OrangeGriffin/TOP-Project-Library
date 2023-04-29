@@ -114,18 +114,20 @@ const addBook = () => {
 
 const deleteBook = (bookIndex) => {
   myLibrary.splice(bookIndex, 1);
-  reRender()
+  reRender();
 };
 
 addBookButtons.addEventListener("click", (e) => {
   const submitBtn = document.querySelector(".submit-book");
   const cancelBtn = document.querySelector(".cancel-add-book");
 
+  const inputsValidity = document.querySelectorAll(".add-book-inputs input")
   switch (e.target.className) {
     case "add-book-button":
       displayAddBookForm();
       break;
     case "submit-book":
+        console.log(inputsValidity)
       addBook();
       reRender();
 
@@ -155,6 +157,6 @@ addBookButtons.addEventListener("click", (e) => {
 booksCards.addEventListener("click", (e) => {
   if (e.target.className === "delete-book") {
     const bookIndex = e.target.parentElement.id;
-    deleteBook(bookIndex)
+    deleteBook(bookIndex);
   }
 });

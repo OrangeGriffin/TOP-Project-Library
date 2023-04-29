@@ -56,6 +56,7 @@ const renderCards = (array) => {
             bookCard.appendChild(pagesElement);
             break;
           case "read":
+            readElement.classList.add("read-status")
             readElement.innerText = `Read: ${value}`;
             bookCard.appendChild(readElement);
             break;

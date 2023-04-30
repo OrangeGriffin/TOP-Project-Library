@@ -59,6 +59,9 @@ const renderCards = (array) => {
           case "read":
             readElement.classList.add("read-status");
             readElement.classList.add("switch");
+            if (value === true) {
+                readElement.classList.add("switch-on")
+            }
             bookCard.appendChild(readElement);
             break;
 

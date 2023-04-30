@@ -37,9 +37,7 @@ const renderCards = (array) => {
       const titleElement = document.createElement("p");
       const authorEleemnt = document.createElement("p");
       const pagesElement = document.createElement("p");
-      const readElement = document.createElement("input");
-
-      const readElementLabel = document.createElement("label");
+      const readElement = document.createElement("label");
 
       if (typeof value === "function") {
         /* Do nothing */
@@ -60,13 +58,8 @@ const renderCards = (array) => {
             break;
           case "read":
             readElement.classList.add("read-status");
-            readElement.setAttribute("type", "checkbox");
-            readElement.classList.add("checkbox");
-            readElement.setAttribute("id", "toggle");
-            readElementLabel.classList.add("switch");
-            readElementLabel.setAttribute("for", "toggle");
+            readElement.classList.add("switch");
             bookCard.appendChild(readElement);
-            bookCard.appendChild(readElementLabel);
             break;
 
           default:
@@ -126,7 +119,17 @@ const deleteBook = (bookIndex) => {
   reRender();
 };
 
+const updateReadStatus = (target) => {
+  console.log(target);
+  if (target.classList.contains("switch-on")) {
+    target.classList.remove("switch-on");
+  } else {
+  target.classList.add("switch-on");
+  }
+};
+
 addBookButtons.addEventListener("click", (e) => {
+  e.preventDefault();
   const submitBtn = document.querySelector(".submit-book");
   const cancelBtn = document.querySelector(".cancel-add-book");
 
@@ -162,8 +165,10 @@ addBookButtons.addEventListener("click", (e) => {
 });
 
 booksCards.addEventListener("click", (e) => {
+  const bookIndex = e.target.parentElement.id;
   if (e.target.className === "delete-book") {
-    const bookIndex = e.target.parentElement.id;
     deleteBook(bookIndex);
+  } else if (e.target.classList.contains("switch")) {
+    updateReadStatus(e.target);
   }
 });

@@ -60,7 +60,7 @@ const renderCards = (array) => {
             readElement.classList.add("read-status");
             readElement.classList.add("switch");
             if (value === true) {
-                readElement.classList.add("switch-on")
+              readElement.classList.add("switch-on");
             }
             bookCard.appendChild(readElement);
             break;
@@ -123,7 +123,6 @@ const deleteBook = (bookIndex) => {
 };
 
 const updateReadStatus = (target, bookIndex) => {
-  console.log(bookIndex);
   if (target.classList.contains("switch-on")) {
     target.classList.remove("switch-on");
     myLibrary[bookIndex].read = false;

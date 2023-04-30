@@ -119,12 +119,14 @@ const deleteBook = (bookIndex) => {
   reRender();
 };
 
-const updateReadStatus = (target) => {
-  console.log(target);
+const updateReadStatus = (target, bookIndex) => {
+  console.log(bookIndex);
   if (target.classList.contains("switch-on")) {
     target.classList.remove("switch-on");
+    myLibrary[bookIndex].read = false;
   } else {
-  target.classList.add("switch-on");
+    target.classList.add("switch-on");
+    myLibrary[bookIndex].read = true;
   }
 };
 
@@ -169,6 +171,6 @@ booksCards.addEventListener("click", (e) => {
   if (e.target.className === "delete-book") {
     deleteBook(bookIndex);
   } else if (e.target.classList.contains("switch")) {
-    updateReadStatus(e.target);
+    updateReadStatus(e.target, bookIndex);
   }
 });

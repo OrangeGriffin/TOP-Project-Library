@@ -101,6 +101,13 @@ const displayAddBookForm = () => {
   cancelBtn.style.display = "flex";
 };
 
+const isValid = (input) => input.validity.valid;
+
+const checkInputs = (inputs) => {
+  const inputsArray = Array.from(inputs);
+  return inputsArray.every(isValid);
+};
+
 const addBook = () => {
   const title = document.querySelector("#title").value;
   const author = document.querySelector("#author").value;
@@ -133,23 +140,27 @@ const updateReadStatus = (target, bookIndex) => {
 };
 
 addBookButtons.addEventListener("click", (e) => {
-  e.preventDefault();
   const submitBtn = document.querySelector(".submit-book");
   const cancelBtn = document.querySelector(".cancel-add-book");
+  const inputs = document.querySelectorAll("input");
 
   switch (e.target.className) {
     case "add-book-button":
       displayAddBookForm();
       break;
     case "submit-book":
-      addBook();
-      reRender();
+      if (!checkInputs(inputs)) {
+        break;
+      } else {
+        addBook();
+        reRender();
 
-      submitBtn.style.display = "none";
-      cancelBtn.style.display = "none";
+        submitBtn.style.display = "none";
+        cancelBtn.style.display = "none";
 
-      addBookButton.style.display = "flex";
-      addBookInputs.style.display = "none";
+        addBookButton.style.display = "flex";
+        addBookInputs.style.display = "none";
+      }
       break;
     case "cancel-add-book":
       submitBtn.style.display = "none";

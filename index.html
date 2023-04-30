@@ -16,7 +16,7 @@
       <section class="books-cards"></section>
     </section>
     <section class="add-book-section">
-      <form class="add-book-form">
+      <form class="add-book-form" onsubmit="event.preventDefault();">
         <section class="add-book-buttons">
           <button type="button" class="add-book-button">Add Book</button>
           <button type="button" class="cancel-add-book">Cancel</button>
@@ -26,11 +26,11 @@
         <label for="title">Title</label>
         <input name="title" id="title" type="text" required/>
         <label for="author">Author</label>
-        <input name="author" id="author" type="text" />
+        <input name="author" id="author" type="text" required />
         <label for="pages">Pages</label>
-        <input name="pages" id="pages" type="text" />
+        <input name="pages" id="pages" type="text" required />
         <div class="read-status">
-          <input type="radio" name="read" id="hasRead" value="true" />
+          <input type="radio" name="read" id="hasRead" value="true" required />
           <label for="read">Read</label>
           <input type="radio" name="read" id="notRead" value="false" />
           <label for="read">Not Read</label>

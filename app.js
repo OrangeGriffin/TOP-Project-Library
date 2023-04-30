@@ -1,4 +1,4 @@
-let myLibrary = []; // initialize empty library array
+const myLibrary = []; // initialize empty library array
 
 // The book constructor
 function Book(title, author, pages, read) {

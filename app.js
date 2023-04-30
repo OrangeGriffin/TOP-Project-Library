@@ -68,14 +68,14 @@ const renderCards = (array) => {
           default:
           /* Do nothing */
         }
-        const trashIcon = document.createElement("img");
-        trashIcon.classList.add("delete-book");
-        trashIcon.src = "./images/trash-can-outline.svg";
-        bookCard.setAttribute("id", bookId);
-        bookCard.appendChild(trashIcon);
       }
-      booksCards.appendChild(bookCard);
     });
+    const trashIcon = document.createElement("img");
+    trashIcon.classList.add("delete-book");
+    trashIcon.src = "./images/trash-can-outline.svg";
+    bookCard.setAttribute("id", bookId);
+    bookCard.appendChild(trashIcon);
+    booksCards.appendChild(bookCard);
     bookId += 1;
   });
 };

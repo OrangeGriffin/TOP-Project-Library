@@ -37,6 +37,8 @@ const renderCards = (array) => {
       const titleElement = document.createElement("p");
       const authorEleemnt = document.createElement("p");
       const pagesElement = document.createElement("p");
+      const readDiv = document.createElement("div")
+      const readElementText = document.createElement("p");
       const readElement = document.createElement("label");
 
       if (typeof value === "function") {
@@ -57,12 +59,16 @@ const renderCards = (array) => {
             bookCard.appendChild(pagesElement);
             break;
           case "read":
+            readDiv.classList.add("read-div")
+            readElementText.innerText = "Read:";
             readElement.classList.add("read-status");
             readElement.classList.add("switch");
             if (value === true) {
               readElement.classList.add("switch-on");
             }
-            bookCard.appendChild(readElement);
+            readDiv.appendChild(readElementText)
+            readDiv.appendChild(readElement);
+            bookCard.appendChild(readDiv);
             break;
 
           default:
@@ -156,7 +162,7 @@ addBookButtons.addEventListener("click", (e) => {
         addBook();
         reRender();
         inputs.forEach((input) => {
-          const blankValue = input
+          const blankValue = input;
           blankValue.value = "";
           blankValue.checked = false;
         });

@@ -156,8 +156,9 @@ addBookButtons.addEventListener("click", (e) => {
         addBook();
         reRender();
         inputs.forEach((input) => {
-          input.value = "";
-          input.checked = false;
+          const blankValue = input
+          blankValue.value = "";
+          blankValue.checked = false;
         });
       }
 

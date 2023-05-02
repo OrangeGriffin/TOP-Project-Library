@@ -9,8 +9,13 @@
   font-family: "Architects Daughter", sans-serif;
   font-size: 2rem;
   box-shadow: 7px 10px 8px 0 rgba(0, 0, 0, 0.2);
-  background: rgb(2,0,36);
-background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(80,80,208,1) 0%, rgba(0,212,255,1) 100%);
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(80, 80, 208, 1) 0%,
+    rgba(0, 212, 255, 1) 100%
+  );
 }
 
 .books-header {
@@ -114,13 +119,21 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(80,80,208,1) 0%, rgba
 }
 
 .delete-book:hover {
-  background-color: rgb(197, 7, 7);
+  background-color: rgb(230, 83, 83);
+  cursor: pointer;
   opacity: 0.7;
 }
 
 .submit-successful {
   display: none;
 }
+
+.read-div {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
 .switch {
   position: relative;
   display: inline-block;
@@ -129,7 +142,9 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(80,80,208,1) 0%, rgba
   background-color: rgba(0, 0, 0, 0.25);
   border-radius: 20px;
   transition: all 0.3s;
+  cursor: pointer;
 }
+
 .switch::after {
   content: "";
   position: absolute;
@@ -144,7 +159,7 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(80,80,208,1) 0%, rgba
 
 .switch-on::after {
   left: 20px;
-  background-color: #7983ff;
+  background-color: #6969ec;
 }
 
 .checkbox {

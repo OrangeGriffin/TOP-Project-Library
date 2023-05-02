@@ -113,15 +113,42 @@
 .delete-book {
   width: 20px;
   height: auto;
-  position: absolute;
-  bottom: 3px;
-  right: 3px;
 }
 
 .delete-book:hover {
   background-color: rgb(230, 83, 83);
   cursor: pointer;
   opacity: 0.7;
+}
+
+.hovertext {
+  position: absolute;
+  bottom: 3px;
+  right: 3px;
+}
+
+.hovertext:before {
+  content: attr(data-hover);
+  visibility: hidden;
+  opacity: 0;
+  width: 140px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px;
+  transition: opacity .5s ease-in-out;
+
+  position: relative;
+  z-index: 1;
+  left: 1;
+  top: 110%;
+  margin-right: 3px;
+}
+
+.hovertext:hover:before {
+  opacity: 1;
+  visibility: visible;
 }
 
 .submit-successful {

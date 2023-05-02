@@ -37,7 +37,7 @@ const renderCards = (array) => {
       const titleElement = document.createElement("p");
       const authorEleemnt = document.createElement("p");
       const pagesElement = document.createElement("p");
-      const readDiv = document.createElement("div")
+      const readDiv = document.createElement("div");
       const readElementText = document.createElement("p");
       const readElement = document.createElement("label");
 
@@ -59,14 +59,14 @@ const renderCards = (array) => {
             bookCard.appendChild(pagesElement);
             break;
           case "read":
-            readDiv.classList.add("read-div")
+            readDiv.classList.add("read-div");
             readElementText.innerText = "Read:";
             readElement.classList.add("read-status");
             readElement.classList.add("switch");
             if (value === true) {
               readElement.classList.add("switch-on");
             }
-            readDiv.appendChild(readElementText)
+            readDiv.appendChild(readElementText);
             readDiv.appendChild(readElement);
             bookCard.appendChild(readDiv);
             break;
@@ -76,11 +76,15 @@ const renderCards = (array) => {
         }
       }
     });
+    const imgDiv = document.createElement("div");
+    imgDiv.classList.add("hovertext")
+    imgDiv.setAttribute("data-hover", "DELETE");
     const trashIcon = document.createElement("img");
     trashIcon.classList.add("delete-book");
     trashIcon.src = "./images/trash-can-outline.svg";
     bookCard.setAttribute("id", bookId);
-    bookCard.appendChild(trashIcon);
+    imgDiv.appendChild(trashIcon)
+    bookCard.appendChild(imgDiv);
     booksCards.appendChild(bookCard);
     bookId += 1;
   });
